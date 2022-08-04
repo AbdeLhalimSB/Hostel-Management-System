@@ -1,0 +1,27 @@
+.login_tb{
+    -fx-background-radius : 50px 10px 50px 10px;
+    -fx-background-color: #101010;
+    -fx-border-color:#ffa730;
+    -fx-border-radius :50px 10px 50px 10px;
+    -fx-border-width:3px;
+}
+
+.btn_login{
+    -fx-background-color: #101010;
+    -fx-border-color:#ffa730;
+    -fx-border-radius :50px 50px 50px 50px;
+    -fx-border-width:1px;
+}
+.btn_menu{
+    -fx-background-color: #101010;
+    -fx-border-color:#ffa730;
+    -fx-border-radius :50px 50px 50px 50px;
+    -fx-border-width:2px;
+}
+.dashboard_cards{
+        -fx-background-radius : 50px 10px 10px 10px;
+        -fx-background-color: #101010;
+        -fx-border-color:#ffa730;
+        -fx-border-radius :50px 10px 10px 10px;
+        -fx-border-width:3px;
+}

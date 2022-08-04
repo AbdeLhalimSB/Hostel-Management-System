@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="Hotel-Management-System.jnlp">
+  <information>
+    <title>Hotel-Management-System</title>
+    <vendor>sahba</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="Hotel-Management-System.jar" size="2479678" download="eager" />
+    <jar href="lib\mysql-connector-java-8.0.15.jar" size="2134905" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="800" height="600" main-class="hotel.management.system.HotelManagementSystem"  name="Hotel-Management-System" />
+  <update check="always"/>
+</jnlp>
