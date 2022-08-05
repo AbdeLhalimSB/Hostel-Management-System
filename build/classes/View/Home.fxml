@@ -119,6 +119,6 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="main" layoutX="270.0" prefHeight="740.0" prefWidth="815.0" style="-fx-background-color: EDE8E8;" />
+      <AnchorPane fx:id="main" layoutX="270.0" prefHeight="740.0" prefWidth="815.0" style="-fx-background-color: #202225;" />
    </children>
 </AnchorPane>
