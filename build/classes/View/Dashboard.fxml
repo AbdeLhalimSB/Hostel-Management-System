@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="main" prefHeight="740.0" prefWidth="815.0" style="-fx-background-color: #202225;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="main" prefHeight="740.0" prefWidth="815.0" style="-fx-background-color: #202225;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controls.Dashboard_CL">
    <children>
       <Pane layoutX="49.0" layoutY="117.0" prefHeight="149.0" prefWidth="718.0" style="-fx-border-color: FFA730; -fx-background-color: #202225; -fx-border-width: 2;" styleClass="dashboard_cards" stylesheets="@Style.css">
          <children>
@@ -21,12 +21,12 @@
                   <Font name="System Bold" size="21.0" />
                </font>
             </Label>
-            <Label layoutX="172.0" layoutY="59.0" text="-" textFill="WHITE">
+            <Label fx:id="Name" layoutX="172.0" layoutY="59.0" text="-" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="21.0" />
                </font>
             </Label>
-            <Label layoutX="548.0" layoutY="59.0" text="-" textFill="WHITE">
+            <Label fx:id="Email" layoutX="548.0" layoutY="59.0" text="-" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="21.0" />
                </font>

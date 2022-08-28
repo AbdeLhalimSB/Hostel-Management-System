@@ -3,6 +3,7 @@ package Controls;
 
 import static com.sun.javafx.scene.control.skin.Utils.getResource;
 import java.io.IOException;
+import java.sql.SQLException;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,6 +21,12 @@ public class Home_CL {
     
     @FXML
     AnchorPane main;
+    
+    @FXML
+    public void initialize() throws SQLException, IOException {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("/View/Dashboard.fxml"));
+        main.getChildren().setAll(pane);
+    }
     
     public void openDashboard(Event e) throws IOException{
         AnchorPane pane = FXMLLoader.load(getClass().getResource("/View/Dashboard.fxml"));
