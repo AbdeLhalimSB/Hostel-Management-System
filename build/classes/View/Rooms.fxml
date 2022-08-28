@@ -17,7 +17,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="main" prefHeight="740.0" prefWidth="815.0" style="-fx-background-color: #202225;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="main" prefHeight="740.0" prefWidth="815.0" style="-fx-background-color: #202225;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controls.Rooms_CL">
    <children>
       <ImageView fitHeight="36.0" fitWidth="49.0" layoutX="765.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -32,14 +32,14 @@
                     <items>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="315.0" prefWidth="703.0">
                            <children>
-                              <TableView prefHeight="300.0" prefWidth="677.0" stylesheets="@Style.css">
+                              <TableView fx:id="rooms_dataview" prefHeight="300.0" prefWidth="677.0" stylesheets="@Style.css">
                                 <columns>
-                                  <TableColumn prefWidth="75.0" text="ID" />
-                                  <TableColumn prefWidth="159.0" text="Name" />
-                                    <TableColumn prefWidth="94.0" text="Price" />
-                                    <TableColumn prefWidth="184.0" text="Position" />
-                                    <TableColumn text="Beds" />
-                                    <TableColumn prefWidth="84.0" text="MP" />
+                                  <TableColumn fx:id="id" prefWidth="75.0" text="ID" />
+                                  <TableColumn fx:id="name" prefWidth="159.0" text="Name" />
+                                    <TableColumn fx:id="price" prefWidth="94.0" text="Price" />
+                                    <TableColumn fx:id="position" prefWidth="184.0" text="Position" />
+                                    <TableColumn fx:id="beds" text="Beds" />
+                                    <TableColumn fx:id="mp" prefWidth="84.0" text="MP" />
                                 </columns>
                               </TableView>
                            </children>
@@ -51,7 +51,7 @@
                                     <Font name="System Bold" size="18.0" />
                                  </font>
                               </Text>
-                              <TextField layoutX="164.0" layoutY="13.0" prefHeight="31.0" prefWidth="453.0" promptText="   Enter Room Name To Search" styleClass="login_tb" stylesheets="@Style.css" />
+                              <TextField fx:id="search_tx" layoutX="164.0" layoutY="13.0" prefHeight="31.0" prefWidth="453.0" promptText="   Enter Room Name To Search" styleClass="login_tb" stylesheets="@Style.css" />
                               <Button layoutX="620.0" layoutY="11.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: #3C3C3C;" stylesheets="@Style.css">
                                  <graphic>
                                     <ImageView fitHeight="27.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
@@ -135,13 +135,14 @@
                            <items>
                               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="315.0" prefWidth="703.0">
                                  <children>
-                                    <TableView prefHeight="288.0" prefWidth="677.0" stylesheets="@Style.css">
+                                    <TableView fx:id="reserv_dataview" prefHeight="288.0" prefWidth="677.0" stylesheets="@Style.css">
                                        <columns>
-                                          <TableColumn prefWidth="64.0" text="ID" />
-                                          <TableColumn prefWidth="175.0" text="From" />
-                                          <TableColumn prefWidth="187.0" text="To" />
-                                          <TableColumn prefWidth="77.0" text="Price" />
-                                          <TableColumn prefWidth="173.0" text="Room" />
+                                          <TableColumn fx:id="id2" prefWidth="51.0" text="ID" />
+                                          <TableColumn fx:id="from" prefWidth="136.0" text="From" />
+                                          <TableColumn fx:id="to" prefWidth="154.0" text="To" />
+                                          <TableColumn fx:id="price2" prefWidth="89.0" text="Price" />
+                                          <TableColumn fx:id="room" prefWidth="133.0" text="Room" />
+                                          <TableColumn fx:id="reserver" prefWidth="113.0" text="Reserver" />
                                        </columns>
                                     </TableView>
                                  </children>
@@ -153,7 +154,7 @@
                                           <Font name="System Bold" size="18.0" />
                                        </font>
                                     </Text>
-                                    <TextField layoutX="203.0" layoutY="13.0" prefHeight="31.0" prefWidth="414.0" promptText="   Enter Room Name To Search" styleClass="login_tb" stylesheets="@Style.css" />
+                                    <TextField fx:id="search_tx2" layoutX="203.0" layoutY="13.0" prefHeight="31.0" prefWidth="414.0" promptText="   Enter Room Name To Search" styleClass="login_tb" stylesheets="@Style.css" />
                                     <Button layoutX="620.0" layoutY="11.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: #3C3C3C;" stylesheets="@Style.css">
                                        <graphic>
                                           <ImageView fitHeight="27.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
@@ -186,7 +187,7 @@
                                           <Font name="System Bold" size="18.0" />
                                        </font>
                                     </Text>
-                                    <TextField layoutX="152.0" layoutY="169.0" prefHeight="25.0" prefWidth="238.0" promptText="Enter Price" styleClass="boooxes" stylesheets="@Style.css" />
+                                    <TextField fx:id="room_price" layoutX="152.0" layoutY="169.0" prefHeight="25.0" prefWidth="238.0" promptText="Enter Price" styleClass="boooxes" stylesheets="@Style.css" />
                                     <Button layoutX="456.0" layoutY="89.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="174.0" styleClass="boooxes" stylesheets="@Style.css">
                                        <graphic>
                                           <ImageView fitHeight="52.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
@@ -211,9 +212,9 @@
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </Button>
-                                    <DatePicker layoutX="157.0" layoutY="84.0" prefHeight="25.0" prefWidth="227.0" stylesheets="@Style.css" />
-                                    <DatePicker layoutX="157.0" layoutY="129.0" prefHeight="25.0" prefWidth="227.0" stylesheets="@Style.css" />
-                                    <ComboBox layoutX="152.0" layoutY="210.0" prefHeight="25.0" prefWidth="238.0" styleClass="boooxes" stylesheets="@Style.css" />
+                                    <DatePicker fx:id="from_tx" layoutX="157.0" layoutY="84.0" prefHeight="25.0" prefWidth="227.0" stylesheets="@Style.css" />
+                                    <DatePicker fx:id="to_tx" layoutX="157.0" layoutY="129.0" prefHeight="25.0" prefWidth="227.0" stylesheets="@Style.css" />
+                                    <ComboBox fx:id="rooms_tx" layoutX="152.0" layoutY="210.0" prefHeight="25.0" prefWidth="238.0" styleClass="boooxes" stylesheets="@Style.css" />
                                  </children>
                               </AnchorPane>
                            </items>

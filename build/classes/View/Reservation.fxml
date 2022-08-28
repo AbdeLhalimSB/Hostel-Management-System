@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="main" prefHeight="740.0" prefWidth="815.0" style="-fx-background-color: #202225;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="main" prefHeight="740.0" prefWidth="815.0" style="-fx-background-color: #202225;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controls.Reservation_CL">
    <children>
       <ImageView fitHeight="39.0" fitWidth="38.0" layoutX="763.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -36,8 +36,8 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <DatePicker layoutX="96.0" layoutY="71.0" />
-            <DatePicker layoutX="508.0" layoutY="71.0" />
+            <DatePicker fx:id="from_tx" layoutX="96.0" layoutY="71.0" />
+            <DatePicker fx:id="to_tx" layoutX="508.0" layoutY="71.0" />
             <ImageView fitHeight="58.0" fitWidth="48.0" layoutX="335.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Image/shuffle-arrows.png" />
@@ -53,7 +53,7 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <ComboBox layoutX="132.0" layoutY="198.0" prefHeight="25.0" prefWidth="191.0" styleClass="boooxes" stylesheets="@Style.css" />
+            <ComboBox fx:id="rooms_tx" layoutX="132.0" layoutY="198.0" onAction="#getselectedroominfos" prefHeight="25.0" prefWidth="191.0" styleClass="boooxes" stylesheets="@Style.css" />
             <Label layoutX="291.0" layoutY="247.0" text="Room Description" textFill="#ffa730">
                <font>
                   <Font name="System Bold" size="16.0" />
@@ -64,7 +64,7 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="223.0" layoutY="300.0" text="0" textFill="#37ff00">
+            <Label fx:id="room_price" layoutX="223.0" layoutY="300.0" text="0" textFill="#37ff00">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -74,7 +74,7 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="599.0" layoutY="300.0" text="0" textFill="WHITE">
+            <Label fx:id="room_beds" layoutX="599.0" layoutY="300.0" text="0" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -84,7 +84,7 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="223.0" layoutY="357.0" text="-" textFill="WHITE">
+            <Label fx:id="room_position" layoutX="223.0" layoutY="357.0" text="-" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -94,7 +94,7 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="599.0" layoutY="357.0" text="0" textFill="WHITE">
+            <Label fx:id="room_mp" layoutX="599.0" layoutY="357.0" text="0" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
@@ -109,25 +109,19 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <TextField layoutX="165.0" layoutY="440.0" styleClass="boooxes" stylesheets="@Style.css" />
-            <Label layoutX="383.0" layoutY="440.0" text="Client Persons :" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
-            <TextField layoutX="516.0" layoutY="440.0" styleClass="boooxes" stylesheets="@Style.css" />
+            <TextField fx:id="cname_tx" layoutX="165.0" layoutY="440.0" styleClass="boooxes" stylesheets="@Style.css" />
             <Label layoutX="32.0" layoutY="500.0" text="Client Phone : " textFill="WHITE">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="383.0" layoutY="500.0" text="Client ID Card : " textFill="WHITE">
+            <Label layoutX="383.0" layoutY="440.0" text="Client ID Card : " textFill="WHITE">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <TextField layoutX="516.0" layoutY="500.0" styleClass="boooxes" stylesheets="@Style.css" />
-            <Button layoutX="64.0" layoutY="567.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="282.0" style="-fx-background-color: #0F0F0F;" styleClass="boooxes" stylesheets="@Style.css" text="Save" textFill="WHITE">
+            <TextField fx:id="cidcard_tx" layoutX="516.0" layoutY="440.0" styleClass="boooxes" stylesheets="@Style.css" />
+            <Button layoutX="64.0" layoutY="567.0" mnemonicParsing="false" onAction="#add" prefHeight="59.0" prefWidth="282.0" style="-fx-background-color: #0F0F0F;" styleClass="boooxes" stylesheets="@Style.css" text="Save" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="19.0" />
                </font>
@@ -142,7 +136,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutX="373.0" layoutY="567.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="282.0" style="-fx-background-color: #0F0F0F;" styleClass="boooxes" stylesheets="@Style.css" text="Clear" textFill="WHITE">
+            <Button layoutX="373.0" layoutY="567.0" mnemonicParsing="false" onAction="#clear" prefHeight="59.0" prefWidth="282.0" style="-fx-background-color: #0F0F0F;" styleClass="boooxes" stylesheets="@Style.css" text="Clear" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="19.0" />
                </font>
@@ -157,7 +151,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <TextField layoutX="165.0" layoutY="500.0" styleClass="boooxes" stylesheets="@Style.css" />
+            <TextField fx:id="cphone_tx" layoutX="165.0" layoutY="500.0" styleClass="boooxes" stylesheets="@Style.css" />
          </children>
       </Pane>
    </children>

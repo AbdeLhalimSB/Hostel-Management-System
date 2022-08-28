@@ -48,7 +48,7 @@ public class Login_CL extends Thread{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/Dashboard.fxml"));
         root = loader.load();
         Dashboard_CL dsh = loader.getController();
-        dsh.SetInfos("slm", user.getEmail());
+//        dsh.SetInfos("slm", user.getEmail());
         ResultSet res = st.executeQuery("select * from users where Email='"+user.getEmail()+"' and Password='"+user.getPassword()+"'");
         
         if(res.next()){

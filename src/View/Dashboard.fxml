@@ -45,7 +45,7 @@
                   <Font name="System Bold" size="21.0" />
                </font>
             </Label>
-            <Label layoutX="618.0" layoutY="64.0" text="0" textFill="#28b53b">
+            <Label fx:id="ttres" layoutX="618.0" layoutY="64.0" text="0" textFill="#28b53b">
                <font>
                   <Font name="System Bold" size="21.0" />
                </font>
