@@ -61,8 +61,8 @@ public class Reservation_CL {
         state = ConnectionDB.openConnection().createStatement();
         ResultSet result =state.executeQuery("SELECT  `Price`, `Position`, `Beds`, `MP` FROM `room`  where Name ='"+Searchedroom+"'");
         if(result.next()){
-            room_price.setText(result.getNString(1));
-            room_position.setText(result.getNString(2));
+            room_price.setText(result.getString(1));
+            room_position.setText(result.getString(2));
             room_beds.setText(Integer.toString(result.getInt(3)));
             room_mp.setText(Integer.toString(result.getInt(4)));
         }
@@ -108,29 +108,41 @@ public class Reservation_CL {
             });
         }
         else{
-            if(checkreservation()==false){
-                try {
-                state = ConnectionDB.openConnection().createStatement();
-                state.executeUpdate("INSERT INTO `reservation`(`From`, `To`, `Room`, `Reserver`, `Price`) VALUES ('"+from_tx.getValue().toString()+"','"+to_tx.getValue().toString()+"','"+rooms_tx.getValue().toString()+"', '"+cname_tx.getText()+"','"+room_price.getText()+"' )");
-                state.executeUpdate("INSERT INTO `client`(`Name`, `IDCard`, `Phone`) VALUES ('"+cname_tx.getText()+"', '"+cidcard_tx.getText()+"', "+cphone_tx.getText()+"' )");
-                ConnectionDB.closeConnection();
-                clear();
-                
-                } catch (SQLException ex) {
-                    ConnectionDB.closeConnection();
-                    Logger.getLogger(Reservation_CL.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-            else{
+            if(from_tx.getValue().isAfter(to_tx.getValue()) || from_tx.getValue().isBefore(LocalDate.now())){
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Add Idea State");
                 alert.setHeaderText("Add Idea");
-                alert.setContentText("Sorry this room is token !!");
+                alert.setContentText("Check the dates pleas the from date is after to date");
                 alert.showAndWait().ifPresent(rs -> {
                     if (rs == ButtonType.OK) {
                         System.out.println("Pressed OK.");
                 }
                 });
+            }
+            else{
+                if(checkreservation()==false){
+                    try {
+                        state = ConnectionDB.openConnection().createStatement();
+                        state.executeUpdate("INSERT INTO `reservation`(`From`, `To`, `Room`, `Reserver`, `Price`) VALUES ('"+from_tx.getValue().toString()+"','"+to_tx.getValue().toString()+"','"+rooms_tx.getValue().toString()+"', '"+cname_tx.getText()+"','"+room_price.getText()+"' )");
+                        state.executeUpdate("INSERT INTO `client`(`Name`, `IDCard`, `Phone`) VALUES ('"+cname_tx.getText()+"', '"+cidcard_tx.getText()+"', '"+cphone_tx.getText()+"' )");
+                        ConnectionDB.closeConnection();
+                        clear();
+                    } catch (SQLException ex) {
+                        ConnectionDB.closeConnection();
+                        Logger.getLogger(Reservation_CL.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                else{
+                    Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setTitle("Add Idea State");
+                    alert.setHeaderText("Add Idea");
+                    alert.setContentText("Sorry this room is token !!");
+                    alert.showAndWait().ifPresent(rs -> {
+                        if (rs == ButtonType.OK) {
+                            System.out.println("Pressed OK.");
+                    }
+                    });
+                }
             }
         }
     }
@@ -140,5 +152,7 @@ public class Reservation_CL {
         cidcard_tx.setText("");
         cphone_tx.setText("");
     }
+    
+    
     
 }
