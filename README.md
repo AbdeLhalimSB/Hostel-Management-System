@@ -21,7 +21,7 @@ Install my-project with :
     
 ## Features
 
-- Delete Ended reservations automaticly
-- Save Clients from reservations automaticly
+- Delete Ended reservations automatically
+- Save Clients from reservations automatically
 - Flexible add & update & delete reservations & clients & rooms
 
