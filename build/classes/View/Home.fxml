@@ -15,7 +15,7 @@
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="60.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Image/5-stars.png" />
+                  <Image url="@../Image/hotel.png" />
                </image>
             </ImageView>
             <VBox layoutX="6.0" layoutY="238.0" prefHeight="366.0" prefWidth="258.0">

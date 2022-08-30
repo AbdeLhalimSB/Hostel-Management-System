@@ -67,7 +67,7 @@
                   <Font name="System Bold" size="22.0" />
                </font>
             </Label>
-            <Label layoutX="331.0" layoutY="396.0" text="www.-.com" textFill="#ffae00">
+            <Label layoutX="331.0" layoutY="396.0" text="-" textFill="#ffae00">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
